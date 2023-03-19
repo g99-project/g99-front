@@ -1,0 +1,28 @@
+/*===================================================================
+* INFORMATION
+* -------------------------------------------------------------------
+* @File Name:common.scss
+* @Description : 여러 scss를 한군데 모으는 scss
+* @Create Date: 2023-01-17
+* @Last Update Date: N/A
+* @History: N/A
+* -------------------------------------------------------------------
+* layout          : 웹페이지 전체를 구성하는 레이아웃
+* pages           : 개별로 존재하는 화면
+* templates       : 여러 개의 Components로 구현된 웹사이트에 특화된 템플릿
+* components      : 버튼, 인풋박스, 컨테이너 등등 개별 컴포넌트
+* variable.scss   : 모든 scss파일에서 사용할 변수에 대한 정의
+* ====================================================================*/
+
+@charset "UTF-8";
+
+// BASE
+@import "./base/variables";
+@import "./base/base";
+@import "./base/layout";
+
+// COMPONENTS
+// @import "./components/buttons";
+
+// STYLE
+
