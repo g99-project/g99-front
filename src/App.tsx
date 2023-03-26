@@ -7,9 +7,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 // component
 import HeaderComponent from './components/HeaderComponent';
-import FooterComponent from './components/FooterComponent';
 import { Wrap } from './styles/Layout';
-import Router from './Router';
+import Router from './routes/Router';
 
 
 function App() {
@@ -22,7 +21,6 @@ function App() {
           <GlobalStyles />
           <HeaderComponent />
           <Router />
-          <FooterComponent />
         </ThemeProvider>
       </Wrap>
     </>

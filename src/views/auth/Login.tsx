@@ -5,26 +5,8 @@ import styled from 'styled-components';
 import DefaultBtn from '../../styles/Buttons';
 import { Container } from '../../styles/Layout';
 
-// interface IForm {
-//     id: "string",
-//     pw: "string"
-// }
-
-// const Form = styled.form`
-//     display: inline-flex;
-//     flex-direction: column;
-// `;
-// const InputWrap = styled.div`
-//     display: inline-flex;
-//     gap: 1rem;
-//     align-items: center;
-// `;
 
 function Login() {
-    // const { register, handleSubmit, setValue, formState: { errors }, setError } = useForm<IForm>();
-    // const chkValid = (data: IForm) => {
-    //     console.log('제출')
-    // }
     // id,pw, 버튼 비활성화
     const [id, setId] = useState<string>("");
     const [pw, setPw] = useState<string>("");
