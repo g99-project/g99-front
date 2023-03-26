@@ -17,12 +17,20 @@
 @charset "UTF-8";
 
 // BASE
+@import "./base/font";
 @import "./base/variables";
+@import "./base/mixins";
 @import "./base/base";
 @import "./base/layout";
+
+// LAYOUT
+@import "./layouts/layout";
+@import "./layouts/header";
+
+// RESPONSIVE
+@import "./responsive";
 
 // COMPONENTS
 // @import "./components/buttons";
 
-// STYLE
 
