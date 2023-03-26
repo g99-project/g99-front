@@ -1,7 +1,5 @@
 import { useState } from 'react';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
-import { Container } from '../../styles/Layout';
-import DefaultBtn from '../../styles/Buttons';
 
 function SignUp() {
     // id,pw, 버튼 비활성화
@@ -46,7 +44,6 @@ function SignUp() {
         errorId === false && errorPw === false ? setIsDisabled(false) : setIsDisabled(true);
     };
 
-
     // 회원가입 시
     const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -79,18 +76,18 @@ function SignUp() {
     }
 
     return (
-        <Container>
-            <h1>🌏지구구에 오신것을 환영해요🌳<br /> 회원이 아니시라면 회원가입 부탁</h1>
-            <form onSubmit={onSubmit}>
-                <input value={id} onChange={onChangeId} type="text" placeholder="이메일" />
-                <input value={pw} onChange={onChangePw} type="password" placeholder="비밀번호" />
-                <DefaultBtn disabled={isDisabled}>회원가입</DefaultBtn>
-            </form>
-            {msg && <p>{msg}</p>}
-            <p>
-                <DefaultBtn as="a" href="/login">로그인하러가기</DefaultBtn>
-            </p>
-        </Container>
+      <>
+        <h1>🌏지구구에 오신것을 환영해요🌳<br /> 회원이 아니시라면 회원가입 부탁</h1>
+        <form onSubmit={onSubmit}>
+            <input value={id} onChange={onChangeId} type="text" placeholder="이메일" />
+            <input value={pw} onChange={onChangePw} type="password" placeholder="비밀번호" />
+            {/* <DefaultBtn disabled={isDisabled}>회원가입</DefaultBtn> */}
+        </form>
+        {msg && <p>{msg}</p>}
+        <p>
+            {/* <DefaultBtn as="a" href="/login">로그인하러가기</DefaultBtn> */}
+        </p>
+      </>
     );
 }
 

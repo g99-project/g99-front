@@ -445,8 +445,8 @@ th {
 
 body {
     color: $text-color;
-    font-family: $font;
-    font-size: 1.6rem;
+    font-family: $font !important;
+    font-size: 1.6rem !important;
     font-weight: 400;
     letter-spacing: 0rem;
     -webkit-font-smoothing: antialiased;
