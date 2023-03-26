@@ -1,10 +1,6 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
-import DefaultBtn from '../../styles/Buttons';
-import { Container } from '../../styles/Layout';
-
 
 function Login() {
     // id,pw, 버튼 비활성화
@@ -83,7 +79,7 @@ function Login() {
 
 
     return (
-        <Container>
+        <>
             <h1>🌏로그인부탁</h1>
             {/* <Form onSubmit={handleSubmit(chkValid)}>
                 <InputWrap>
@@ -109,10 +105,10 @@ function Login() {
             <form onSubmit={onSubmit}>
                 <input value={id} onChange={onChangeId} type="text" placeholder="아이디" />
                 <input value={pw} onChange={onChangePw} type="password" placeholder="비밀번호" />
-                <DefaultBtn disabled={isDisabled}>제출</DefaultBtn>
+                {/* <DefaultBtn disabled={isDisabled}>제출</DefaultBtn> */}
             </form>
             {msg && <p>{msg}</p>}
-        </Container>
+        </>
     )
 }
 
