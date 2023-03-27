@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Search } from 'react-feather';
-import { Button } from 'reactstrap';
+import { Button, Input, InputGroup } from 'reactstrap';
 
 function Header() {
-  const [isLogin, setIsLogin] = useState(false);
+  const [isLogin, setIsLogin]= useState(false);
+  const [isSearch, setIsSearch]= useState(false);
+  const onSubmit = (event: Event) => {
+    console.log('확인');
+
+  };
 
   return (
     <header>
@@ -17,7 +22,12 @@ function Header() {
         <Link to="/">홈으로</Link>
       </h1>
       <div className="rArea">
-        <Search className='searchBtn' />
+        <InputGroup>
+          <Input type="text" id="searchInput" name="search" />
+          <button>
+            <Search className='searchBtn' />
+          </button>
+        </InputGroup>
       </div>
     </header>
   )
