@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Search } from 'react-feather';
 import { Button, Input, InputGroup } from 'reactstrap';
@@ -6,10 +6,21 @@ import { Button, Input, InputGroup } from 'reactstrap';
 function Header() {
   const [isLogin, setIsLogin]= useState(false);
   const [isSearch, setIsSearch]= useState(false);
-  const onSubmit = (event: Event) => {
-    console.log('확인');
-
+  const searchRef = useRef<HTMLDivElement>(null);
+  const onSearch = (event: React.MouseEvent<HTMLElement>) => {
+    event.preventDefault();
+    isSearch ? console.log('검색') : setIsSearch(true);
   };
+
+  useEffect(() => {
+    function handleOutside(e: MouseEvent): void {
+      if (searchRef.current && !searchRef.current.contains(e.target as Node)) {
+        setIsSearch(false);
+      }
+    }
+    document.addEventListener("mousedown", handleOutside);
+    return () => document.removeEventListener("mousedown", handleOutside);
+  }, [searchRef]);
 
   return (
     <header>
@@ -21,13 +32,13 @@ function Header() {
       <h1 className="logo">
         <Link to="/">홈으로</Link>
       </h1>
-      <div className="rArea">
-        <InputGroup>
-          <Input type="text" id="searchInput" name="search" />
-          <button>
-            <Search className='searchBtn' />
+      <div className="rArea" ref={searchRef}>
+        <form className={isSearch ? 'open' : ''}>
+          <input type="text" id="searchInput" name="search" />
+          <button className='searchBtn' onClick={onSearch}>
+            <Search />
           </button>
-        </InputGroup>
+        </form>
       </div>
     </header>
   )
