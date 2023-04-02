@@ -1,11 +1,9 @@
 import { Helmet } from 'react-helmet';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 // component
 import Header from './components/Header';
 import Router from './routes/Router';
 import { Container } from 'reactstrap';
-
 
 function App() {
   return (
