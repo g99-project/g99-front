@@ -444,13 +444,13 @@ th {
 }
 
 body {
-    color: $text-color;
-    font-family: $font !important;
-    font-size: 1.6rem !important;
-    font-weight: 400;
-    letter-spacing: 0rem;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  color: $text-color;
+  font-family: $font !important;
+  font-size: 1.6rem !important;
+  font-weight: 400;
+  letter-spacing: 0rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .hidden{@include hidden;}

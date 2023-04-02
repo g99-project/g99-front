@@ -2,98 +2,97 @@
 
 /* response */
 @mixin response($screen-width) {
-    @if $screen-width == "pc" {
-        /* 1441 ~ 1650 */
-        @media (min-width: 1441px) and (max-width: 1600px) {
-            @content;
-        }
-    } @else if $screen-width == "tablet" {
-        /* 769 ~ 1440 */
-        @media (min-width: 769px) and (max-width: 1440px) {
-            @content;
-        }
-    } @else if $screen-width == "mobile" {
-        /* ~ 768 */
-        @media (max-width: 768px) {
-            @content;
-        }
+  @if $screen-width == "pc" {
+    /* 1441 ~ 1650 */
+    @media (min-width: 1441px) and (max-width: 1600px) {
+        @content;
     }
+  } @else if $screen-width == "tablet" {
+    /* 769 ~ 1440 */
+    @media (min-width: 769px) and (max-width: 1440px) {
+        @content;
+    }
+  } @else if $screen-width == "mobile" {
+    /* ~ 768 */
+    @media (max-width: 768px) {
+        @content;
+    }
+  }
 }
 
 @mixin hidden {
-    display: block;
-    position: absolute;
-    overflow: hidden;
-    margin: -1px;
-    padding: 0;
-    width: 1px;
-    height: 1px;
-    line-height: 1px;
-    font-size: 1px;
-    border: 0;
-    clip: rect(0 0 0 0);
+  display: block;
+  position: absolute;
+  overflow: hidden;
+  margin: -1px;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  line-height: 1px;
+  font-size: 1px;
+  border: 0;
+  clip: rect(0 0 0 0);
 }
 
 // 백그라운드 이미지
 @mixin backgroundImg($url, $position: center, $size: auto) {
-    background: url($url) no-repeat $position;
-    background-size: $size;
+  background: url($url) no-repeat $position;
+  background-size: $size;
 }
 
 // SVG 아이콘
 @mixin svgIcon($width, $height, $url) {
-    display: inline-block;
-    width: $width;
-    height: $height;
-    background-image: url($url);
-    background-repeat: no-repeat;
-    background-size: contain;
+  display: inline-block;
+  width: $width;
+  height: $height;
+  background-image: url($url);
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 /* 아이콘 버튼 */
 @mixin iconBtn($url) {
-    display: inline-block;
-    text-indent: -9999px;
-    font-size: 0;
-    overflow: hidden;
-    border: none;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-image: url($url);
-    background-position: center;
-    vertical-align: middle;
+  display: inline-block;
+  text-indent: -9999px;
+  font-size: 0;
+  overflow: hidden;
+  border: none;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url($url);
+  background-position: center;
+  vertical-align: middle;
 }
 
 // TEXT
 @mixin text($weight, $size, $height, $color: $black, $spacing: 0) {
-    font-weight: $weight;
-    font-size: $size;
-    line-height: $height;
-    color: $color;
-    letter-spacing: $spacing;
+  font-weight: $weight;
+  font-size: $size;
+  line-height: $height;
+  color: $color;
+  letter-spacing: $spacing;
 }
 
-// 적용 시 display 속성 필수(block, inline-block)
 @mixin ellipsis {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: block;
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
 
 @mixin multiEllipsis($line: 2) {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: block;
-    display: -webkit-box;
-    -webkit-line-clamp: $line;
-    -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  display: -webkit-box;
+  -webkit-line-clamp: $line;
+  -webkit-box-orient: vertical;
 }
 
 @mixin noScrollBar {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
-    &::-webkit-scrollbar {display: none;}
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  &::-webkit-scrollbar {display: none;}
 }

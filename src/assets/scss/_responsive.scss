@@ -1,20 +1,16 @@
 // pc
 @include response("pc") {
-    html {font-size: 55%;}
-    .inner-wrap {padding: 0 8rem;}
-    footer .inner-wrap {padding: 0;}
+  html {font-size: 55%;}
 }
 
 // TABLET
 @include response("tablet") {
-    html {font-size: 47%;}
-    .inner-wrap {padding: 0 8rem;}
-    footer .inner-wrap {padding: 0;}
+  html {font-size: 47%;}
 }
 
 // MOBILE
 @include response("mobile") {
-    .pc {display: none !important;}
-    .mobile {display: block !important;}
-    .inner-wrap {padding: 0 2.4rem;}
+  .pc {display: none !important;}
+  .mobile {display: block !important;}
+  .inner-wrap {padding: 0 2.4rem;}
 }

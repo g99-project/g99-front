@@ -1,19 +1,24 @@
 #wrap {
-    position: relative;
-    width: 100%;
-    height: 100%;
+  position: relative;
+  min-width: 100vw;
+  min-height: 100vh;
+  width: 100%;
+  height: 100%;
+  padding-top: 20rem;
+  .container {
+    padding: 0;
+  }
 }
 
 .inner-wrap {
-    position: relative;
-    width: 100%;
-    max-width: 160rem;
-    margin: 0 auto;
-    &.narrow {max-width: 105.6rem;}
+  position: relative;
+  width: 100%;
+  max-width: 140rem;
+  margin: 0 auto;
 }
 
 #main {
-    position: relative;
-    min-height: 100vh;
-    #container {padding: 10rem 0 20rem;}
+  position: relative;
+  min-height: 100vh;
+  #container {padding: 10rem 0 20rem;}
 }
