@@ -1,12 +1,14 @@
 import { Route, Routes } from 'react-router-dom';
 import Main from '../views/main/Main';
+import Login from '../views/auth/Login';
 
 function Router() {
-    return (
-        <Routes>
-            <Route path="/" element={<Main />} />
-        </Routes>
-    )
+  return (
+    <Routes>
+      <Route path="/" element={<Main />} />
+      <Route path="/login" element={<Login />} />
+    </Routes>
+  );
 }
 
 export default Router;
