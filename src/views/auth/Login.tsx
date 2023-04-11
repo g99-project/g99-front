@@ -117,14 +117,16 @@ function Login() {
           </section>
           <section>
             <h4 className="form-label">소셜 로그인 하기</h4>
-            <Button color="primary">카카오</Button>
-            <Button color="primary">네이버</Button>
-            <Button color="primary">구글</Button>
+            <div className="btn-wrap not-center">
+              <Button color="primary">카카오</Button>
+              <Button color="primary">네이버</Button>
+              <Button color="primary">구글</Button>
+            </div>
           </section>
-          <section>
+          <section className="btn-wrap">
             <Button color="link">기억이 안나요</Button>
             <Button color="primary">로그인</Button>
-            <Button color="primary">회원가입</Button>
+            <Button>회원가입</Button>
           </section>
         </div>
       </div>

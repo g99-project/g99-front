@@ -16,4 +16,12 @@
       font-weight: 200;
     }
   }
+  .btn-wrap{
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    &.not-center {
+      justify-content: flex-start;
+    }
+  }
 }
