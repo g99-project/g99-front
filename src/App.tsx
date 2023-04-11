@@ -13,9 +13,9 @@ function App() {
       </Helmet>
       <div id="wrap">
         <Header />
-        <Container>
+        <main id="container">
           <Router />
-        </Container>
+        </main>
       </div>
     </>
   );
