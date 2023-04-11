@@ -85,7 +85,7 @@ function Login() {
 
   return (
     <div id="wrap">
-      <div className="container">
+      <div className="container login">
         <div className="inner-wrap">
           <section>
             <h1>
@@ -116,7 +116,7 @@ function Login() {
             </Form>
           </section>
           <section>
-            <h4>소셜 로그인 하기</h4>
+            <h4 className="form-label">소셜 로그인 하기</h4>
             <Button color="primary">카카오</Button>
             <Button color="primary">네이버</Button>
             <Button color="primary">구글</Button>
