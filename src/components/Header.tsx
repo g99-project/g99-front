@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Search } from 'react-feather';
 import { Button } from 'reactstrap';
 
@@ -7,6 +7,7 @@ function Header() {
   const [isLogin] = useState(false);
   const [isSearch, setIsSearch] = useState(false);
   const searchRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
   const onSearch = (event: React.MouseEvent<HTMLElement>) => {
     event.preventDefault();
     // isSearch ? console.log('검색') : setIsSearch(true);
@@ -27,10 +28,20 @@ function Header() {
     return () => document.removeEventListener('mousedown', handleOutside);
   }, [searchRef]);
 
+  const goToLogin = () => {
+    navigate('/login');
+  };
+
   return (
     <header>
       <div className="lArea">
-        {isLogin ? '로그아웃' : <Button color="success">로그인</Button>}
+        {isLogin ? (
+          '로그아웃'
+        ) : (
+          <Button color="success" onClick={goToLogin}>
+            로그인
+          </Button>
+        )}
       </div>
       <h1 className="logo">
         <Link to="/">홈으로</Link>
