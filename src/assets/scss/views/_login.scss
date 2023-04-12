@@ -1,0 +1,27 @@
+.login{
+  .form-label{
+    font-size: 2.4rem;
+    font-weight: 400;
+    margin-bottom: 3rem;
+  }
+  input {
+    padding: 3rem;
+    border-radius: 0.8rem;
+    border: none;
+    box-shadow: 0 0.8rem 2.4rem 0 rgba(0,0,0,0.1);
+    font-size: 2.4rem;
+    &::placeholder{
+      font-size: inherit;
+      color: $placeholder;
+      font-weight: 200;
+    }
+  }
+  .btn-wrap{
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    &.not-center {
+      justify-content: flex-start;
+    }
+  }
+}
