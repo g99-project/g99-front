@@ -84,50 +84,48 @@ function Login() {
   // }
 
   return (
-    <div className="container login">
-      <div className="inner-wrap">
-        <section>
-          <h1>
-            안녕하세요!
-            <br />
-            지구를 구하기 위해 로그인을 해주세요.
-          </h1>
-        </section>
-        <section>
-          <Form>
-            <FormGroup>
-              <Label for="inputID">아이디로 로그인 하기</Label>
-              <Input
-                id="inputID"
-                name="id"
-                placeholder="아이디를 입력해주세요"
-                type="text"
-              />
-            </FormGroup>
-            <FormGroup>
-              <Input
-                id="inputPW"
-                name="password"
-                placeholder="비밀번호를 입력해주세요"
-                type="password"
-              />
-            </FormGroup>
-          </Form>
-        </section>
-        <section>
-          <h4 className="form-label">소셜 로그인 하기</h4>
-          <div className="btn-wrap not-center">
-            <Button color="primary">카카오</Button>
-            <Button color="primary">네이버</Button>
-            <Button color="primary">구글</Button>
-          </div>
-        </section>
-        <section className="btn-wrap">
-          <Button color="link">기억이 안나요</Button>
-          <Button color="primary">로그인</Button>
-          <Button>회원가입</Button>
-        </section>
-      </div>
+    <div className="inner-wrap login">
+      <section>
+        <h1>
+          안녕하세요!
+          <br />
+          지구를 구하기 위해 로그인을 해주세요.
+        </h1>
+      </section>
+      <section>
+        <Form>
+          <FormGroup>
+            <Label for="inputID">아이디로 로그인 하기</Label>
+            <Input
+              id="inputID"
+              name="id"
+              placeholder="아이디를 입력해주세요"
+              type="text"
+            />
+          </FormGroup>
+          <FormGroup>
+            <Input
+              id="inputPW"
+              name="password"
+              placeholder="비밀번호를 입력해주세요"
+              type="password"
+            />
+          </FormGroup>
+        </Form>
+      </section>
+      <section>
+        <h4 className="formLabel">소셜 로그인 하기</h4>
+        <div className="btnWrap notCenter">
+          <Button color="primary">카카오</Button>
+          <Button color="primary">네이버</Button>
+          <Button color="primary">구글</Button>
+        </div>
+      </section>
+      <section className="btnWrap">
+        <Button color="link">기억이 안나요</Button>
+        <Button color="primary">로그인</Button>
+        <Button>회원가입</Button>
+      </section>
     </div>
   );
 }

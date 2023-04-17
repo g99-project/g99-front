@@ -1,26 +1,27 @@
 .login{
-  .form-label{
-    font-size: 2.4rem;
+  .formLabel,.form-label{
+    font-size: 2rem;
     font-weight: 400;
-    margin-bottom: 3rem;
+    margin-bottom: 1.5rem;
+    cursor: default;
   }
   input {
-    padding: 3rem;
+    padding: 1.5rem;
     border-radius: 0.8rem;
     border: none;
     box-shadow: 0 0.8rem 2.4rem 0 rgba(0,0,0,0.1);
-    font-size: 2.4rem;
+    font-size: 1.6rem;
     &::placeholder{
       font-size: inherit;
       color: $placeholder;
       font-weight: 200;
     }
   }
-  .btn-wrap{
+  .btnWrap{
     display: flex;
     justify-content: center;
-    gap: 3rem;
-    &.not-center {
+    gap: 1.5rem;
+    &.notCenter {
       justify-content: flex-start;
     }
   }
