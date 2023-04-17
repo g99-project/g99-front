@@ -31,7 +31,7 @@ header {
     margin: 0;
     font-size: 0;
     a {
-      @include svgIcon(10rem, 10rem, "../../images/common/logo.svg");
+      @include svgIcon(5rem, 5rem, "../../images/common/logo.svg");
     }
   }
   .rArea {
