@@ -7,7 +7,7 @@ function Main() {
   return (
     <>
       <div className='mainBanner'>배너 구역</div>
-      <div className="inner-wrap">
+      <div className="innerWrap">
         <section>
           <div className="titArea">
             <h2>공지사항</h2>

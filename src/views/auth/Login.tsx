@@ -85,7 +85,7 @@ function Login() {
   // }
 
   return (
-    <div className="inner-wrap login">
+    <div className="innerWrap login">
       <section>
         <h1>
           안녕하세요!

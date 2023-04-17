@@ -1,11 +1,8 @@
 #wrap {
   display: flex;
   position: relative;
-  min-width: 100vw;
-  min-height: 100vh;
   width: 100%;
   height: 100%;
-  padding-top: 10rem;
 
   .container {
     display: flex;
@@ -14,7 +11,7 @@
   }
 }
 
-.inner-wrap {
+.innerWrap {
   position: relative;
   width: 100%;
   max-width: 140rem;
@@ -32,11 +29,9 @@ section {
   }
 }
 
-main {
-  position: relative;
-  min-height: 100vh;
-}
-
 #container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
   padding: 10rem 0 20rem;
 }

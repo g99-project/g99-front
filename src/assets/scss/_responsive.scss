@@ -12,5 +12,5 @@
 @include response("mobile") {
   .pc {display: none !important;}
   .mobile {display: block !important;}
-  .inner-wrap {padding: 0 2.4rem;}
+  .innerWrap {padding: 0 2.4rem;}
 }
