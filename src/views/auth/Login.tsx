@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
+import { LoginType, PwType } from '../../types/interface';
 
 function Login() {
   // id,pw, 버튼 비활성화
-  const [id, setId] = useState<string>('');
-  const [pw, setPw] = useState<string>('');
-  const [setIsDisabled] = useState<boolean>(true);
+  const [id, setId] = useState<LoginType | string>('');
+  const [pw, setPw] = useState<PwType | string | any>('');
+  const [isDisabled, setIsDisabled] = useState<boolean>(true);
 
   // 유효성 검사
   const [errorId, setErrorId] = useState<boolean>(false);
   const [errorPw, setErrorPw] = useState<boolean>(false);
-  // const [msg, setMsg] = useState('');
+  const [msg, setMsg] = useState('');
 
   // id input change 이벤트
   const onChangeId = (event: React.FormEvent<HTMLInputElement>) => {
@@ -18,14 +19,16 @@ function Login() {
       currentTarget: { value },
     } = event;
     setId(value);
+    console.log(id, value);
     const regEx =
-      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/g;
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/g;
     if (regEx.test(value)) {
+      console.log(msg, isDisabled);
       setErrorId(false);
-      // setMsg('');
+      setMsg('');
     } else {
       setErrorId(true);
-      // setMsg('아이디 형식에 맞지 않습니다.');
+      setMsg('아이디 형식에 맞지 않습니다.');
     }
 
     if (errorId === false && errorPw === false) {
@@ -42,10 +45,10 @@ function Login() {
     setPw(value);
     if (pw.length >= 6) {
       setErrorPw(false);
-      // setMsg('');
+      setMsg('');
     } else {
       setErrorPw(true);
-      // setMsg('비밀번호는 8자리 이상이어야 합니다.');
+      setMsg('비밀번호는 8자리 이상이어야 합니다.');
     }
     if (errorId === false && errorPw === false) {
       setIsDisabled(false);
