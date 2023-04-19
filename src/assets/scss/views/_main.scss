@@ -1,27 +1,23 @@
-.mainBanner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 20rem;
-  margin-bottom: 5rem;
-  background-color: bisque;
-}
-
-section {
-  .titArea {
+.mainWrap {
+  .mainBanner {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin-bottom: 2rem;
-    h2 {
-      font-weight: bold;
-    }
+    justify-content: center;
+    height: 20rem;
+    margin-bottom: 5rem;
+    background-color: bisque;
   }
-  .cardArea {
-    display: flex;
-    gap: 4.5rem;
-    .card {
-      width: 31.5rem;
+
+  article {
+    .titArea {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+      h2 {
+        font-weight: bold;
+      }
     }
+    & ~ article {margin-top: 5rem;}
   }
 }

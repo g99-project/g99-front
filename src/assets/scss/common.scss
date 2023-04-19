@@ -26,12 +26,13 @@
 @import "./layouts/layout";
 @import "./layouts/header";
 
+// COMPONENTS
+@import "./components/buttons";
+@import "./components/card";
+
 // VIEWS
 @import "./views/main";
 @import "./views/login";
 
 // RESPONSIVE
 @import "./responsive";
-
-// COMPONENTS
-@import "./components/buttons";
