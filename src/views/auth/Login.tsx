@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
-import { LoginType, PwType } from '../../types/interface';
+import { Form, FormGroup, Label, Input, Button, FormText } from 'reactstrap';
+import { LoginType, PwType } from '../../types/login';
 
 function Login() {
   // id,pw, 버튼 비활성화
@@ -107,6 +107,7 @@ function Login() {
               type="text"
               onChange={onChangeId}
             />
+            <FormText>에러메세지</FormText>
           </FormGroup>
           <FormGroup>
             <Input
@@ -116,6 +117,7 @@ function Login() {
               type="password"
               onChange={onChangePw}
             />
+            <FormText>에러메세지</FormText>
           </FormGroup>
         </Form>
       </section>
