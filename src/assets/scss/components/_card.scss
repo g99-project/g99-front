@@ -3,7 +3,7 @@
   flex-wrap: wrap;
   gap: 3rem;
   .card {
-    width: 21.5%;
+    width: calc(25% - 2.3rem);
     border-radius: 1rem;
     overflow: hidden;
     box-shadow: 0px 0px 4px rgba(0,0,0,0.5);

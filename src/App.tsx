@@ -1,7 +1,8 @@
 import React from 'react';
+import Router from './routes/Router';
 // component
 import Header from './components/Header';
-import Router from './routes/Router';
+import TopButton from './components/TopButton';
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <Header />
       <main id="container">
         <Router />
+        <TopButton />
       </main>
     </div>
   );
