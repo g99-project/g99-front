@@ -1,13 +1,13 @@
 {
   "parser": "@typescript-eslint/parser",
-  "plugins": ["react", "@typescript-eslint"],
+  "plugins": ["import","react", "@typescript-eslint"],
   "extends": [
     "airbnb",
     // "prettier/react",
     "prettier",
     "eslint:recommended",
     "plugin:prettier/recommended",
-    "plugin:import/errors",
+    "plugin:import/recommended",
     "plugin:import/warnings",
     "plugin:import/typescript"
   ],
@@ -25,7 +25,8 @@
       }
     ],
     "react/react-in-jsx-scope": "off",
-    "react/jsx-filename-extension":["warn",{"extensions":[".tsx"]}]
+    "react/jsx-filename-extension":["warn",{"extensions":[".tsx"]}],
+    "no-console": "off"
   },
   "settings": {
     "react": {
