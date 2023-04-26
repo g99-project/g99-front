@@ -1,8 +1,9 @@
 export interface cardInfo {
-  title: string,
-  description: string,
+  id: number;
+  title: string;
+  description: string;
 }
 
 export interface thumbnailCardInfo extends cardInfo {
-  imgUrl: string,
+  imgUrl: string;
 }

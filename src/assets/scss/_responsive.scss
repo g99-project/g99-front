@@ -6,6 +6,7 @@
 // TABLET
 @include response("tablet") {
   html {font-size: 47%;}
+  .innerWrap {padding: 0 2.4rem;}
 }
 
 // MOBILE
@@ -13,4 +14,11 @@
   .pc {display: none !important;}
   .mobile {display: block !important;}
   .innerWrap {padding: 0 2.4rem;}
+
+  .cardArea {
+    gap: 2rem;
+    .card {
+      width: calc(50% - 1rem);
+    }
+  }
 }
