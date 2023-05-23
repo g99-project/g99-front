@@ -1,12 +1,14 @@
+import { LoginRes } from '../../types/login';
 import api from '../index';
 
 export default async function PostLoginApi(
   param: Record<string, string | any>,
-) {
+): Promise<LoginRes | undefined> {
   const formData = new FormData();
   formData.append('username', param.username);
   formData.append('password', param.password);
 
+  let result;
   await api
     .post('/login', formData, {
       headers: {
@@ -14,9 +16,10 @@ export default async function PostLoginApi(
       },
     })
     .then(response => {
-      return response.data;
+      result = response.data;
     })
     .catch(err => {
       console.log(err);
     });
+  return result;
 }

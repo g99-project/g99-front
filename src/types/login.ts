@@ -8,3 +8,9 @@ export interface PwType {
   pw: string;
   setPw: Dispatch<SetStateAction<string>>;
 }
+
+export interface LoginRes {
+  Token: string;
+  message: string;
+  status: string;
+}

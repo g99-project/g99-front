@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Form, FormGroup, Label, Input, Button, FormText } from 'reactstrap';
-import { LoginType, PwType } from '../../types/login';
+import { SetterOrUpdater, useSetRecoilState } from 'recoil';
+import { LoginRes, LoginType, PwType } from '../../types/login';
 import PostLoginApi from '../../api/auth/postLoginApi';
+import loginState from '../../atoms/atoms';
 
 function Login() {
+  const navigate = useNavigate();
   // id,pw, 버튼 비활성화
   const [id, setId] = useState<LoginType | string>('');
   const [pw, setPw] = useState<PwType | string | any>('');
@@ -15,6 +18,8 @@ function Login() {
   const [errorPw, setErrorPw] = useState<boolean>(false);
   const [errorMsgId, setErrorMsgId] = useState('');
   const [errorMsgPw, setErrorMsgPw] = useState('');
+
+  // const setLogin: SetterOrUpdater<boolean> = useSetRecoilState(loginState);
 
   // id input change 이벤트
   const onChangeId = (event: React.FormEvent<HTMLInputElement>) => {
@@ -59,12 +64,20 @@ function Login() {
   };
 
   // login api 호출
-  const loginApp = () => {
+  const loginApp = async () => {
     const params = {
       username: id,
       password: pw,
     };
-    PostLoginApi(params);
+    const res: LoginRes | undefined = await PostLoginApi(params);
+    console.log(res);
+    if (res?.status === '200') {
+      alert(res?.message);
+      // setLogin(true);
+      navigate('/');
+    } else {
+      alert('로그인 실패');
+    }
   };
 
   return (
