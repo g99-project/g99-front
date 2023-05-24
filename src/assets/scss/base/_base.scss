@@ -157,6 +157,9 @@ a {
   background-color: transparent;
   text-decoration: none;
   color: inherit;
+  &:hover{
+    color: inherit;
+  }
 }
 
 span {

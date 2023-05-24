@@ -1,7 +1,7 @@
 import axios, { AxiosRequestConfig } from 'axios';
 
 const config: AxiosRequestConfig = {
-  baseURL: 'http://127.0.0.1:8080/api/v1/',
+  baseURL: 'http://www.ecog99.com/api/v1',
   timeout: 5000,
   headers: {
     'Content-type': 'application/json; charset=UTF-8',
