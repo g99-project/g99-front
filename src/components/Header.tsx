@@ -2,8 +2,11 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Search } from 'react-feather';
 import { Button } from 'reactstrap';
+import { useRecoilValue, RecoilValue } from 'recoil';
+import loginState from '../atoms/atoms';
 
 function Header() {
+  // const isLogin: boolean = useRecoilValue(loginState);
   const [isLogin] = useState(false);
   const [isSearch, setIsSearch] = useState(false);
   const searchRef = useRef<HTMLDivElement>(null);
