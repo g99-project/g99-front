@@ -1,5 +1,6 @@
 import axios, { AxiosRequestConfig } from 'axios';
 
+axios.defaults.headers.post['Content-Type'] = 'application/json; charset=UTF-8';
 const config: AxiosRequestConfig = {
   baseURL: 'http://www.ecog99.com/api/v1',
   timeout: 5000,
