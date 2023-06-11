@@ -2,20 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 // components
 import ThumbnailCard from '../components/ThumbnailCard';
-import api from '../api';
+import boardListApi from '../api/main/boardListApi';
+import { thumbnailCardInfo } from '../types/cards';
 
 function Main() {
-  const [boardList, setBoardList] = useState(null);
+  const [boardList, setBoardList] = useState<thumbnailCardInfo>();
   const loadList = async () => {
-    await api
-      .get('/main')
-      .then((response) => {
-        setBoardList(response.data.item.boardList);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    setBoardList(await boardListApi());
   };
+
   useEffect(() => {
     loadList();
   }, []);

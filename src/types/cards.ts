@@ -23,9 +23,9 @@ export interface fileInfo {
   type: string;
   url: string;
 }
-interface fileList {
+export interface fileList {
   id: number;
-  file: fileInfo[];
+  file: fileInfo;
 }
 
 export interface thumbnailCardInfo extends cardInfo {
