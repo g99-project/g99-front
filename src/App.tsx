@@ -1,8 +1,8 @@
-import React from 'react';
 import Router from './routes/Router';
 // component
 import Header from './components/Header';
 import TopButton from './components/TopButton';
+import Spinner from './components/Spinner';
 
 function App() {
   return (
@@ -12,6 +12,7 @@ function App() {
         <Router />
         <TopButton />
       </main>
+      <Spinner />
     </div>
   );
 }
