@@ -29,3 +29,22 @@
     }
   }
 }
+
+
+@include response("mobile") {
+  .login{
+    .formLabel,.form-label{
+      font-size: 1.5rem;
+      margin-bottom: 0.8rem;
+    }
+    input {
+      padding: 1rem;
+      border-radius: 0.8rem;
+      font-size: 1.2rem;
+    }
+    .btnWrap{
+      gap: 1rem;
+    }
+  }
+  
+}

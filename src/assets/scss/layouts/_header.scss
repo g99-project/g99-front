@@ -67,3 +67,39 @@ header {
     }
   }
 }
+
+@include response("mobile") {
+  header {
+    height: 7rem;
+    padding: 0 2.4rem;
+    .lArea {
+      .btn {
+        font-size: 1.2rem;
+        border-radius: 2rem;
+        min-width: 3rem;
+      }
+    }
+    .logo {
+      a {
+        @include svgIcon(3rem, 3rem, "../../images/common/logo.svg");
+      }
+    }
+    .rArea {
+      .searchBtn {
+        top: .25rem;
+        svg {
+          width: 2rem;
+          height: 2rem;
+        }
+      }
+      #searchInput {
+        height: 3.4rem;
+        font-size: 1.2rem;
+      }
+      .open #searchInput {
+        width: 10rem;
+        padding: 0 2.4rem 0 0.7rem;
+      }
+    }
+  }
+}
