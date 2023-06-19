@@ -4,7 +4,6 @@ import { Form, FormGroup, Label, Input, Button, FormText } from 'reactstrap';
 import { SetterOrUpdater, useSetRecoilState } from 'recoil';
 import { LoginRes, LoginType, PwType } from '../../types/login';
 import PostLoginApi from '../../api/auth/postLoginApi';
-import loginState from '../../atoms/atoms';
 
 function Login() {
   const navigate = useNavigate();

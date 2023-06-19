@@ -6,6 +6,7 @@
     // "prettier/react",
     "prettier",
     "eslint:recommended",
+    "plugin:react/recommended",
     "plugin:prettier/recommended",
     "plugin:import/recommended",
     "plugin:import/warnings",
