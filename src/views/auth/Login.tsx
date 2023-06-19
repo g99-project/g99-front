@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Form, FormGroup, Label, Input, Button, FormText } from 'reactstrap';
-import { LoginType, PwType } from '../../types/login';
+import { SetterOrUpdater, useSetRecoilState } from 'recoil';
+import { LoginRes, LoginType, PwType } from '../../types/login';
+import PostLoginApi from '../../api/auth/postLoginApi';
+import loginState from '../../atoms/atoms';
 
 function Login() {
+  const navigate = useNavigate();
   // id,pw, 버튼 비활성화
   const [id, setId] = useState<LoginType | string>('');
   const [pw, setPw] = useState<PwType | string | any>('');
@@ -15,13 +19,14 @@ function Login() {
   const [errorMsgId, setErrorMsgId] = useState('');
   const [errorMsgPw, setErrorMsgPw] = useState('');
 
+  // const setLogin: SetterOrUpdater<boolean> = useSetRecoilState(loginState);
+
   // id input change 이벤트
   const onChangeId = (event: React.FormEvent<HTMLInputElement>) => {
     const {
       currentTarget: { value },
     } = event;
     setId(value);
-    console.log(id);
     const regEx =
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/g;
     if (regEx.test(value)) {
@@ -58,35 +63,22 @@ function Login() {
     }
   };
 
-  // 로그인 시
-  // const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-  //   event.preventDefault();
-  //   loginFn();
-  // };
-  // async function loginFn() {
-  //   const data = {
-  //     email: id,
-  //     password: pw,
-  //   };
-  //   const res = await fetch('http://localhost:8080/users/login', {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     body: JSON.stringify(data),
-  //   });
-
-  //   const resJson = await res.json();
-  //   try {
-  //     console.log('resJson :: ', resJson);
-  //     // setMsg(resJson.message);
-  //     alert(resJson.message);
-  //     localStorage.setItem('login-token', resJson.token);
-  //     navigate('/todo');
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // }
+  // login api 호출
+  const loginApp = async () => {
+    const params = {
+      username: id,
+      password: pw,
+    };
+    const res: LoginRes | undefined = await PostLoginApi(params);
+    console.log(res);
+    if (res?.status === '200') {
+      alert(res?.message);
+      // setLogin(true);
+      navigate('/');
+    } else {
+      alert('로그인 실패');
+    }
+  };
 
   return (
     <div className="innerWrap login">
@@ -132,7 +124,7 @@ function Login() {
       </section>
       <section className="btnWrap">
         <Button color="link">기억이 안나요</Button>
-        <Button color="primary" disabled={isDisabled}>
+        <Button color="primary" disabled={isDisabled} onClick={loginApp}>
           로그인
         </Button>
         <Button>

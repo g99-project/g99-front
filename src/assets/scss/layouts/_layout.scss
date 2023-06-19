@@ -48,7 +48,6 @@
   }
 }
 
-
 .spinnerWrap {
   position: fixed;
   display: flex;
@@ -58,4 +57,33 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.3);
   z-index: 999;
+}
+
+@include response("mobile") {
+  #wrap {
+    #container {
+      padding: 10rem 0 10rem;
+    }
+
+    section {
+      & + section {
+        margin-top: 5rem;
+      }
+    }
+  }
+
+  .innerWrap {
+    h1{
+      font-size: 2rem;
+    }
+  }
+
+  .btnTopMove {
+    bottom: 2rem;
+    right: 2rem;
+    svg {
+      width: 3rem;
+      height: 3rem;
+    }
+  }
 }

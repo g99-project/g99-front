@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { Form, FormGroup, Label, Input, Button, FormText } from 'reactstrap';
 import { LoginType, PwType } from '../../types/login';
+import PostJoinApi from '../../api/auth/postJoinApi';
 
 function Join() {
   // id,pw, 버튼 비활성화
-  const [id, setId] = useState<LoginType | string>('');
-  const [pw, setPw] = useState<PwType | string | any>('');
   const [isDisabled, setIsDisabled] = useState<boolean>(true);
 
   // 유효성 검사
@@ -14,13 +13,19 @@ function Join() {
   const [errorMsgId, setErrorMsgId] = useState('');
   const [errorMsgPw, setErrorMsgPw] = useState('');
 
+  // input입력 받는부분
+  const [id, setId] = useState<LoginType | string>('');
+  const [pw, setPw] = useState<PwType | string | any>('');
+  const [name, setName] = useState('');
+  const [nickName, setNickName] = useState('');
+  const [phoneNum, setPhoneNum] = useState('');
+
   // id input change 이벤트
   const onChangeId = (event: React.FormEvent<HTMLInputElement>) => {
     const {
       currentTarget: { value },
     } = event;
     setId(value);
-    console.log(id);
     const regEx =
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/g;
     if (regEx.test(value)) {
@@ -57,6 +62,18 @@ function Join() {
     }
   };
 
+  // 회원가입
+  const joinApp = () => {
+    const param = {
+      email: id,
+      password: pw,
+      username: name,
+      nickname: nickName,
+      phone: phoneNum,
+    };
+    PostJoinApi(param);
+  };
+
   return (
     <div className="innerWrap login">
       <section>
@@ -85,6 +102,34 @@ function Join() {
             />
             {errorPw && <FormText>{errorMsgPw}</FormText>}
           </FormGroup>
+          --- 임시 레이아웃 입니다 ---
+          <FormGroup>
+            <Input
+              id="inputName"
+              onChange={e => setName(e.currentTarget.value)}
+              name="name"
+              placeholder="이름을 입력해주세요"
+              type="text"
+            />
+          </FormGroup>
+          <FormGroup>
+            <Input
+              id="inputNickName"
+              name="nickname"
+              onChange={e => setNickName(e.currentTarget.value)}
+              placeholder="닉네임을 입력해주세요"
+              type="text"
+            />
+          </FormGroup>
+          <FormGroup>
+            <Input
+              id="inputPhone"
+              name="phone"
+              onChange={e => setPhoneNum(e.currentTarget.value)}
+              placeholder="휴대폰번호를 입력해주세요"
+              type="text"
+            />
+          </FormGroup>
         </Form>
       </section>
       <section>
@@ -96,7 +141,9 @@ function Join() {
         </div>
       </section>
       <section className="btnWrap">
-        <Button disabled={isDisabled}>회원가입</Button>
+        <Button onClick={joinApp} disabled={isDisabled}>
+          회원가입
+        </Button>
       </section>
     </div>
   );

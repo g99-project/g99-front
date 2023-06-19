@@ -12,6 +12,7 @@
     "plugin:import/typescript"
   ],
   "rules": {
+    "no-unused-vars": "warn",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "prettier/prettier": ["warn", { "endOfLine": "auto" }],
     "import/extensions": [
