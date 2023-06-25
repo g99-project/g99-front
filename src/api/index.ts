@@ -13,7 +13,4 @@ const config: AxiosRequestConfig = {
 
 const api = axios.create(config);
 
-// api.interceptors.request.use();
-// api.interceptors.response.use();
-
 export default api;

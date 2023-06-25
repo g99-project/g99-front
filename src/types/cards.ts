@@ -11,6 +11,7 @@ export interface cardInfo {
   modifyDt: string;
   registDt: string;
   viewCount: number;
+  fileList: fileList[];
 }
 
 export interface fileInfo {
@@ -26,8 +27,4 @@ export interface fileInfo {
 export interface fileList {
   id: number;
   file: fileInfo;
-}
-
-export interface thumbnailCardInfo extends cardInfo {
-  fileList: fileList[];
 }

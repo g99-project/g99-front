@@ -5,9 +5,14 @@ import Header from './components/Header';
 import TopButton from './components/TopButton';
 import { spinnerState } from './recoil/atoms';
 import Spinner from './components/Spinner';
+import apiInstance from './api/axiosIndex';
 
 function App() {
-  const [spinner, setSpinner] = useRecoilState(spinnerState); // eslint-disable-line no-unused-vars
+  const [spinner, setSpinner] = useRecoilState(spinnerState);
+  const showSpinner = async () => setSpinner(true);
+  const hideSpinner = async () => setSpinner(false);
+  apiInstance.setShowSpinner(showSpinner);
+  apiInstance.setHideSpinner(hideSpinner);
 
   return (
     <div id="wrap">

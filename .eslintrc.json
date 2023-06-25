@@ -29,7 +29,16 @@
     "react/react-in-jsx-scope": "off",
     "react/jsx-filename-extension":["warn",{"extensions":[".tsx"]}],
     "no-console": "off",
-    "import/prefer-default-export": "off"
+    "import/prefer-default-export": "off",
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": ["error"],
+    "lines-between-class-members": [
+      "error",
+      "never",
+      {
+        "exceptAfterSingleLine": true
+      }
+    ]
   },
   "settings": {
     "react": {
