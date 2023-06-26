@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardBody, CardTitle, CardText, CardImg } from 'reactstrap';
-import { thumbnailCardInfo } from '../types/cards';
+import { cardInfo } from '../types/cards';
 import defaultImgUrl from '../assets/images/common/default.png';
 
 function ThumbnailCard({ boardList }: any) {
   return (
     <div className="cardArea">
-      {boardList?.map((item: thumbnailCardInfo) => (
+      {boardList.map((item: cardInfo) => (
         <Card key={item.id}>
           <Link to="/">
             <div className="imgArea">
@@ -15,7 +15,7 @@ function ThumbnailCard({ boardList }: any) {
                 top
                 width="100%"
                 src={
-                  item.fileList.length > 0
+                  item?.fileList.length > 0
                     ? item.fileList[0].file?.url
                     : defaultImgUrl
                 }

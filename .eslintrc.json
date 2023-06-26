@@ -6,6 +6,7 @@
     // "prettier/react",
     "prettier",
     "eslint:recommended",
+    "plugin:react/recommended",
     "plugin:prettier/recommended",
     "plugin:import/recommended",
     "plugin:import/warnings",
@@ -27,7 +28,17 @@
     ],
     "react/react-in-jsx-scope": "off",
     "react/jsx-filename-extension":["warn",{"extensions":[".tsx"]}],
-    "no-console": "off"
+    "no-console": "off",
+    "import/prefer-default-export": "off",
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": ["error"],
+    "lines-between-class-members": [
+      "error",
+      "never",
+      {
+        "exceptAfterSingleLine": true
+      }
+    ]
   },
   "settings": {
     "react": {
