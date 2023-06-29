@@ -4,9 +4,11 @@ import { Link } from 'react-router-dom';
 import ThumbnailCard from '../components/ThumbnailCard';
 import boardListApi from '../api/main/boardList';
 import { cardInfo } from '../types/cards';
+import Dialog from '../components/Dialog';
 
 function Main() {
   const [boardList, setBoardList] = useState<cardInfo[]>();
+  const [dialog, setDialog] = useState(false);
   const loadList = async () => {
     setBoardList(await boardListApi());
   };
@@ -15,9 +17,16 @@ function Main() {
     loadList();
   }, []);
 
+  const testOnClick = () => setDialog(!dialog);
+  const setState = (state: boolean) => setDialog(state);
+
   return (
     <section className="mainWrap">
-      <article className="mainBanner">배너 구역</article>
+      <article className="mainBanner">
+        <button type="button" onClick={testOnClick}>
+          배너 구역
+        </button>
+      </article>
 
       {/* 공지사항 */}
       <article>
@@ -29,6 +38,8 @@ function Main() {
           {boardList && <ThumbnailCard boardList={boardList} />}
         </div>
       </article>
+
+      <Dialog isOpen={dialog} setState={setState} />
     </section>
   );
 }
