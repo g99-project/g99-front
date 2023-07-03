@@ -46,7 +46,6 @@
 
 ---
 ## 🐞 버그 내역
-- [지구구 BACK 이슈관리](https://github.com/g99-project/g99-back/issues)
 - [지구구 FRONT 이슈관리](https://github.com/g99-project/g99-front/issues)
 
 ## 
