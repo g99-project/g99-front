@@ -23,7 +23,7 @@ export default class AxiosApi {
     baseURL: 'http://www.ecog99.com/api/v1',
     timeout: 5000,
     headers: {
-      'Content-type': 'application/json; charset=UTF-8',
+      // 'Content-type': 'application/json; charset=UTF-8',
       'Cache-Control': 'no-cache',
     },
     withCredentials: true,
@@ -59,7 +59,8 @@ export default class AxiosApi {
   }
   constructor() {
     this.instance = axios.create(this.commonRequestConfig);
-
+    this.instance.defaults.headers.post['Content-Type'] =
+      'application/json; charset=UTF-8';
     this.instance.interceptors.request.use(
       this.requestInterceptor.bind(this),
       err => Promise.reject(err),
