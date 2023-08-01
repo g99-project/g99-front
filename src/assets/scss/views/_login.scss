@@ -9,6 +9,8 @@
     color: $error !important;
   }
   input {
+    display: block;
+    width: 100%;
     padding: 1.5rem;
     border-radius: 0.8rem;
     border: none;

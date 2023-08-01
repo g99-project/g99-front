@@ -1,6 +1,8 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Form, FormGroup, Label, Input, Button, FormText } from 'reactstrap';
+import { useForm } from 'react-hook-form';
 import { SetterOrUpdater, useSetRecoilState } from 'recoil';
 import { LoginRes, LoginType, PwType } from '../../types/login';
 import PostLoginApi from '../../api/auth/postLoginApi';
@@ -17,6 +19,20 @@ function Login() {
   const [errorPw, setErrorPw] = useState<boolean>(false);
   const [errorMsgId, setErrorMsgId] = useState('');
   const [errorMsgPw, setErrorMsgPw] = useState('');
+
+  // react-hook-form
+  const {
+    register,
+    watch,
+    formState: { errors },
+    setError,
+    handleSubmit,
+  } = useForm();
+
+  // TODO: validation 조건들 넣기
+  const onValid = (data: any) => {
+    setError('extraError', { message: '인터넷이 연결되지 않았어요.' });
+  };
 
   // const setLogin: SetterOrUpdater<boolean> = useSetRecoilState(loginState);
 
@@ -79,6 +95,8 @@ function Login() {
     }
   };
 
+  console.log(watch('id'));
+
   return (
     <div className="innerWrap login">
       <section>
@@ -89,20 +107,29 @@ function Login() {
         </h1>
       </section>
       <section>
-        <Form>
+        <form onSubmit={handleSubmit(onValid)}>
           <FormGroup>
             <Label for="inputID">아이디로 로그인 하기</Label>
-            <Input
+            <input
               id="inputID"
-              name="id"
               placeholder="아이디를 입력해주세요"
               type="text"
-              onChange={onChangeId}
+              {...register('id', {
+                required: true,
+                pattern: {
+                  value:
+                    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/g,
+                  message: '아이디는 이메일 형식으로 작성해주세요.',
+                },
+              })}
             />
-            {errorId && <FormText>{errorMsgId}</FormText>}
+            {/* onChange={onChangeId} */}
+            {/* {errorId && <FormText>{errorMsgId}</FormText>} */}
+            {/* TODO: error message 잘 나오게 */}
+            <p>{errors?.id?.message?.toString()}</p>
           </FormGroup>
           <FormGroup>
-            <Input
+            <input
               id="inputPW"
               name="password"
               placeholder="비밀번호를 입력해주세요"
@@ -111,7 +138,7 @@ function Login() {
             />
             {errorPw && <FormText>{errorMsgPw}</FormText>}
           </FormGroup>
-        </Form>
+        </form>
       </section>
       <section>
         <h4 className="formLabel">소셜 로그인 하기</h4>
@@ -123,7 +150,12 @@ function Login() {
       </section>
       <section className="btnWrap">
         <Button color="link">기억이 안나요</Button>
-        <Button color="primary" disabled={isDisabled} onClick={loginApp}>
+        <Button
+          color="primary"
+          disabled={isDisabled}
+          onClick={loginApp}
+          type="submit"
+        >
           로그인
         </Button>
         <Button>
